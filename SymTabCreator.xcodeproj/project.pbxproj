@@ -1,0 +1,295 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D773E7111CA8C9400053917 /* DDCliApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D773E6911CA8C9400053917 /* DDCliApplication.m */; };
+		3D773E7211CA8C9400053917 /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D773E6B11CA8C9400053917 /* DDCliParseException.m */; };
+		3D773E7311CA8C9400053917 /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D773E6D11CA8C9400053917 /* DDCliUtil.m */; };
+		3D773E7411CA8C9400053917 /* DDGetoptLongParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D773E7011CA8C9400053917 /* DDGetoptLongParser.m */; };
+		3D773E7811CA8CA000053917 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D773E7711CA8CA000053917 /* main.m */; };
+		3D773E7E11CA8CC600053917 /* SymTabCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D773E7D11CA8CC600053917 /* SymTabCreator.m */; };
+		3D773E8311CA8F2200053917 /* Symbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D773E8211CA8F2200053917 /* Symbol.m */; };
+		3D77400111CAB89200053917 /* example.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D773FFF11CAB89200053917 /* example.c */; };
+		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		8DD76F9F0486AA7600D96B5E /* SymTabCreator.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* SymTabCreator.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76F9E0486AA7600D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				8DD76F9F0486AA7600D96B5E /* SymTabCreator.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32A70AAB03705E1F00C91783 /* SymTabCreator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymTabCreator_Prefix.pch; sourceTree = "<group>"; };
+		3D773E6811CA8C9400053917 /* DDCliApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliApplication.h; sourceTree = "<group>"; };
+		3D773E6911CA8C9400053917 /* DDCliApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliApplication.m; sourceTree = "<group>"; };
+		3D773E6A11CA8C9400053917 /* DDCliParseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliParseException.h; sourceTree = "<group>"; };
+		3D773E6B11CA8C9400053917 /* DDCliParseException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliParseException.m; sourceTree = "<group>"; };
+		3D773E6C11CA8C9400053917 /* DDCliUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliUtil.h; sourceTree = "<group>"; };
+		3D773E6D11CA8C9400053917 /* DDCliUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliUtil.m; sourceTree = "<group>"; };
+		3D773E6E11CA8C9400053917 /* DDCommandLineInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCommandLineInterface.h; sourceTree = "<group>"; };
+		3D773E6F11CA8C9400053917 /* DDGetoptLongParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDGetoptLongParser.h; sourceTree = "<group>"; };
+		3D773E7011CA8C9400053917 /* DDGetoptLongParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDGetoptLongParser.m; sourceTree = "<group>"; };
+		3D773E7711CA8CA000053917 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3D773E7C11CA8CC600053917 /* SymTabCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymTabCreator.h; sourceTree = "<group>"; };
+		3D773E7D11CA8CC600053917 /* SymTabCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymTabCreator.m; sourceTree = "<group>"; };
+		3D773E8111CA8F2200053917 /* Symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Symbol.h; sourceTree = "<group>"; };
+		3D773E8211CA8F2200053917 /* Symbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Symbol.m; sourceTree = "<group>"; };
+		3D773FFF11CAB89200053917 /* example.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = example.c; sourceTree = "<group>"; };
+		3D77400011CAB89200053917 /* example.symbols */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.symbols; sourceTree = "<group>"; };
+		3D77400311CAB8AB00053917 /* readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = readme.rtf; sourceTree = "<group>"; };
+		3D77400511CAB9B100053917 /* example */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = example; sourceTree = "<group>"; };
+		3D77400611CAB9B100053917 /* example.stabs */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = example.stabs; sourceTree = "<group>"; };
+		8DD76FA10486AA7600D96B5E /* SymTabCreator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SymTabCreator; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6859EA3029092ED04C91782 /* SymTabCreator.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SymTabCreator.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76F9B0486AA7600D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* SymTabCreator */ = {
+			isa = PBXGroup;
+			children = (
+				3D773ECA11CA941400053917 /* Other Sources */,
+				08FB7795FE84155DC02AAC07 /* Source */,
+				3D77400211CAB89400053917 /* Example */,
+				C6859EA2029092E104C91782 /* Documentation */,
+				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = SymTabCreator;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				3D773E8111CA8F2200053917 /* Symbol.h */,
+				3D773E8211CA8F2200053917 /* Symbol.m */,
+				3D773E7C11CA8CC600053917 /* SymTabCreator.h */,
+				3D773E7D11CA8CC600053917 /* SymTabCreator.m */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76FA10486AA7600D96B5E /* SymTabCreator */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3D773E7611CA8C9600053917 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				3D773E6811CA8C9400053917 /* DDCliApplication.h */,
+				3D773E6911CA8C9400053917 /* DDCliApplication.m */,
+				3D773E6A11CA8C9400053917 /* DDCliParseException.h */,
+				3D773E6B11CA8C9400053917 /* DDCliParseException.m */,
+				3D773E6C11CA8C9400053917 /* DDCliUtil.h */,
+				3D773E6D11CA8C9400053917 /* DDCliUtil.m */,
+				3D773E6E11CA8C9400053917 /* DDCommandLineInterface.h */,
+				3D773E6F11CA8C9400053917 /* DDGetoptLongParser.h */,
+				3D773E7011CA8C9400053917 /* DDGetoptLongParser.m */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		3D773ECA11CA941400053917 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3D773E7711CA8CA000053917 /* main.m */,
+				3D773E7611CA8C9600053917 /* lib */,
+				32A70AAB03705E1F00C91783 /* SymTabCreator_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		3D77400211CAB89400053917 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				3D773FFF11CAB89200053917 /* example.c */,
+				3D77400011CAB89200053917 /* example.symbols */,
+				3D77400311CAB8AB00053917 /* readme.rtf */,
+				3D77400511CAB9B100053917 /* example */,
+				3D77400611CAB9B100053917 /* example.stabs */,
+			);
+			name = Example;
+			sourceTree = "<group>";
+		};
+		C6859EA2029092E104C91782 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				C6859EA3029092ED04C91782 /* SymTabCreator.1 */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76F960486AA7600D96B5E /* SymTabCreator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "SymTabCreator" */;
+			buildPhases = (
+				8DD76F990486AA7600D96B5E /* Sources */,
+				8DD76F9B0486AA7600D96B5E /* Frameworks */,
+				8DD76F9E0486AA7600D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SymTabCreator;
+			productInstallPath = "$(HOME)/bin";
+			productName = SymTabCreator;
+			productReference = 8DD76FA10486AA7600D96B5E /* SymTabCreator */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "SymTabCreator" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 08FB7794FE84155DC02AAC07 /* SymTabCreator */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76F960486AA7600D96B5E /* SymTabCreator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76F990486AA7600D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D773E7111CA8C9400053917 /* DDCliApplication.m in Sources */,
+				3D773E7211CA8C9400053917 /* DDCliParseException.m in Sources */,
+				3D773E7311CA8C9400053917 /* DDCliUtil.m in Sources */,
+				3D773E7411CA8C9400053917 /* DDGetoptLongParser.m in Sources */,
+				3D773E7811CA8CA000053917 /* main.m in Sources */,
+				3D773E7E11CA8CC600053917 /* SymTabCreator.m in Sources */,
+				3D773E8311CA8F2200053917 /* Symbol.m in Sources */,
+				3D77400111CAB89200053917 /* example.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB927508733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SymTabCreator_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = SymTabCreator;
+			};
+			name = Debug;
+		};
+		1DEB927608733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SymTabCreator_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = SymTabCreator;
+			};
+			name = Release;
+		};
+		1DEB927908733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB927A08733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "SymTabCreator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927508733DD40010E9CD /* Debug */,
+				1DEB927608733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "SymTabCreator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927908733DD40010E9CD /* Debug */,
+				1DEB927A08733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}
