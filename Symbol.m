@@ -73,14 +73,16 @@ NSInteger dehex(NSString *value)
 
 + (id)fromLine:(NSString*) string
 {
-	id new = [[self alloc] init];
-	[new autorelease];
+	if (string == nil || [string length] == 0) return nil;
+	
 	NSArray* lineObjects = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 	if ([lineObjects count] != 2)
 	{
 		fprintf(stderr,"error parsing line: %s",[string UTF8String]);
 		return nil;
 	}
+	id new = [[self alloc] init];
+	[new autorelease];
 	// should check that layout is [offset, name] and not [name, offset]...
 	[new setSymbolName: [lineObjects objectAtIndex:1]];
 	[new setOffset: dehex([lineObjects objectAtIndex:0])];

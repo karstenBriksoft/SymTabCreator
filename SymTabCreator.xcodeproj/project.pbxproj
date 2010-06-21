@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D6CF3FF11CB603500726DC6 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6CF3FE11CB603500726DC6 /* CoreServices.framework */; };
 		3D773E7111CA8C9400053917 /* DDCliApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D773E6911CA8C9400053917 /* DDCliApplication.m */; };
 		3D773E7211CA8C9400053917 /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D773E6B11CA8C9400053917 /* DDCliParseException.m */; };
 		3D773E7311CA8C9400053917 /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D773E6D11CA8C9400053917 /* DDCliUtil.m */; };
@@ -14,7 +15,6 @@
 		3D773E7811CA8CA000053917 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D773E7711CA8CA000053917 /* main.m */; };
 		3D773E7E11CA8CC600053917 /* SymTabCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D773E7D11CA8CC600053917 /* SymTabCreator.m */; };
 		3D773E8311CA8F2200053917 /* Symbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D773E8211CA8F2200053917 /* Symbol.m */; };
-		3D77400111CAB89200053917 /* example.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D773FFF11CAB89200053917 /* example.c */; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* SymTabCreator.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* SymTabCreator.1 */; };
 /* End PBXBuildFile section */
@@ -35,6 +35,7 @@
 /* Begin PBXFileReference section */
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32A70AAB03705E1F00C91783 /* SymTabCreator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymTabCreator_Prefix.pch; sourceTree = "<group>"; };
+		3D6CF3FE11CB603500726DC6 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		3D773E6811CA8C9400053917 /* DDCliApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliApplication.h; sourceTree = "<group>"; };
 		3D773E6911CA8C9400053917 /* DDCliApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliApplication.m; sourceTree = "<group>"; };
 		3D773E6A11CA8C9400053917 /* DDCliParseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliParseException.h; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
+				3D6CF3FF11CB603500726DC6 /* CoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +81,7 @@
 				C6859EA2029092E104C91782 /* Documentation */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
+				3D6CF3FE11CB603500726DC6 /* CoreServices.framework */,
 			);
 			name = SymTabCreator;
 			sourceTree = "<group>";
@@ -206,7 +209,6 @@
 				3D773E7811CA8CA000053917 /* main.m in Sources */,
 				3D773E7E11CA8CC600053917 /* SymTabCreator.m in Sources */,
 				3D773E8311CA8F2200053917 /* Symbol.m in Sources */,
-				3D77400111CAB89200053917 /* example.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
