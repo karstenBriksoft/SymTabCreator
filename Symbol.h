@@ -10,12 +10,12 @@
 
 
 @interface Symbol : NSObject {
-	NSInteger offset;
+	long long offset;
 	NSString* symbolName;
 }
 
-- (NSInteger) offset;
-- (void) setOffset: (NSInteger) newValue;
+- (long long) offset;
+- (void) setOffset: (long long) newValue;
 
 
 + (id)fromLine:(NSString*) string;

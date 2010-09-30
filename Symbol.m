@@ -16,58 +16,11 @@
 	return [self offset] - [otherSymbol offset];
 }
 
-NSInteger valOfHex(char c)
-{// converts a hex digit to an int
-	if(c >= '0' && c <= '9') {
-		return c - '0';
-	} else if(c >= 'A' && c <= 'F') {
-		return 0xA + (c - 'A');
-	}
-	
-	return 0;
-}
-
-NSInteger dehex(NSString *value)
-{
-	// returns the integer value of a hex-string.
-	NSMutableString* fixedValue = [NSMutableString string];
-
-	// this needs to be a bit more error prone
-	// should check for 0x...
-	// should check that numbers are even sized
-	[fixedValue appendString:value];
-	
-	const char *mstr = [[fixedValue uppercaseString] UTF8String];
-	
-	char *s = (char*) mstr;
-	NSInteger resNumber = 0;
-	unsigned char* resBuff = (unsigned char*)&resNumber;
-	unsigned char val;
-	int maxSize = sizeof(NSInteger);
-	int i = 0;
-	// iterate over the source and convert two characters into a byte and store it into resBuff
-	while (i< maxSize && *s != '\0') 
-	{
-		i++;
-		val = valOfHex(*s) << 4;
-		val += valOfHex(*(s+1));
-		s+=2;
-		*resBuff = val;
-		resBuff++;
-	}
-	NSInteger res;
-	if (maxSize > 8)
-		res = CFSwapInt64BigToHost((long long)resNumber);
-	else
-		res = CFSwapInt32BigToHost((long)resNumber);
-	return res;
-}
-
-- (NSInteger) offset {
+- (long long) offset {
   return offset;
 }
 
-- (void) setOffset: (NSInteger) newValue {
+- (void) setOffset: (long long) newValue {
   offset = newValue;
 }
 
@@ -75,17 +28,26 @@ NSInteger dehex(NSString *value)
 {
 	if (string == nil || [string length] == 0) return nil;
 	
-	NSArray* lineObjects = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-	if ([lineObjects count] != 2)
+	NSScanner *scanner = [NSScanner scannerWithString:string];
+	unsigned long long scannedOffset = 0;
+	NSString *scannedSymbolName = nil;
+	BOOL symbolNameOK = NO;
+	if ([scanner scanHexLongLong:&scannedOffset])
 	{
-		fprintf(stderr,"error parsing line: %s",[string UTF8String]);
+		[scanner scanString:@" " intoString:NULL];
+		symbolNameOK = [scanner scanUpToString:@"" intoString:&scannedSymbolName];
+	}
+	
+	if (!symbolNameOK)
+	{
+		fprintf(stderr,"error parsing line: %s\n",[string UTF8String]);
 		return nil;
 	}
+	
 	id new = [[self alloc] init];
 	[new autorelease];
-	// should check that layout is [offset, name] and not [name, offset]...
-	[new setSymbolName: [lineObjects objectAtIndex:1]];
-	[new setOffset: dehex([lineObjects objectAtIndex:0])];
+	[new setSymbolName: scannedSymbolName];
+	[new setOffset: scannedOffset];
 	return new;
 }
 
