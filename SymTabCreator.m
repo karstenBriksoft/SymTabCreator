@@ -80,6 +80,7 @@ NSString *readLineAsNSString(FILE *file)
 	
 	NSString* tempAssemblyFile = @"/tmp/symtab.s";
 	[self writeSymbols: sortedSymbols toFile: tempAssemblyFile];
+	NSString *arch = @"x86_64";
 	const char* command;
 	command = [[NSString stringWithFormat:@"as -arch %@ %@ -o %@",arch,tempAssemblyFile,outFile] UTF8String];
 	if (verbose)
@@ -124,14 +125,12 @@ NSString *readLineAsNSString(FILE *file)
 {
 	source = nil;
 	output = nil;
-	arch = nil;
     DDGetoptOption optionTable[] = 
     {
 		// Long         Short   Argument options
 		{@"source",        's',    DDGetoptRequiredArgument},
 		{@"output",        'o',    DDGetoptRequiredArgument},
 		{@"verbose",       'v',    DDGetoptNoArgument},
-		{@"arch",          'a',    DDGetoptRequiredArgument},
 		{nil,           0,      0}
     };
     [optionsParser addOptionsFromTable:optionTable];
@@ -144,18 +143,6 @@ NSString *readLineAsNSString(FILE *file)
 	NSString* outFile = @"a.out";
 	if (source) {
 		sourceFile = source;
-	}
-	if (arch == nil) {
-		SInt32 gestaltValue;
-		Gestalt(gestaltSysArchitecture, &gestaltValue);
-		if (gestaltValue == gestaltPowerPC)
-		{
-			arch = @"ppc";
-		}
-		else
-		{
-			arch = @"i386";
-		}
 	}
 	if (output)
 	{

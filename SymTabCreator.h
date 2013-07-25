@@ -13,7 +13,6 @@
 	NSString* source;
 	NSString* output;
 	BOOL verbose;
-	NSString* arch;
 }
 
 @end
