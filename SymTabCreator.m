@@ -77,33 +77,19 @@ NSString *readLineAsNSString(FILE *file)
 	
 	NSArray* symbols = [self symbolsFromFile: sourceFile];
 	NSArray* sortedSymbols = [symbols sortedArrayUsingSelector:@selector(compareWithSymbol:)];
+	Symbol *firstSymbol = sortedSymbols.count > 0 ? sortedSymbols[0] : nil;
 	
 	NSString* tempAssemblyFile = @"/tmp/symtab.s";
 	[self writeSymbols: sortedSymbols toFile: tempAssemblyFile];
-	NSString *arch = @"x86_64";
+	NSString *arch = firstSymbol.pointerSize == 8 ? @"x86_64" : @"i386";
 	const char* command;
 	command = [[NSString stringWithFormat:@"as -arch %@ %@ -o %@",arch,tempAssemblyFile,outFile] UTF8String];
 	if (verbose)
 		printf("%s\n",command);
 	if (!system(command))
-	{	
-		NSInteger segAddr = [[sortedSymbols objectAtIndex: 0] offset];
-		if (segAddr > 0x1000)
-		{	
-			if (verbose)
-				printf("segAddr = %p\n",(void*)segAddr);
-			
-			segAddr &= ~0x0fff; // make sure the address has the form of 0x12340000
-			if (verbose)
-				printf("segAddr after & = %p\n",(void*)segAddr);
-			
-			segAddr -= 0x1000; // subtract 0x1000 so that the linker starts the TEXT segment 0x1000 before the __text section starts. This makes sure the __text section starts where we need it.
-			if (verbose)
-				printf("segAddr after subtract= %p\n",(void*)segAddr);		
-			command = [[NSString stringWithFormat:@"ld_classic -seg1addr %p -o %@ %@",(void*)(segAddr),outFile,outFile] UTF8String];
-		}
-		else
-			command = [[NSString stringWithFormat:@"ld_classic -o %@ %@",outFile,outFile] UTF8String];
+	{
+		uint64_t imageBase = firstSymbol.pointerSize == 8 ? 0x100000000 : 0x1000;
+		command = [[NSString stringWithFormat:@"ld -arch %@ -macosx_version_min 10.7 -dylib -image_base 0x%llx -o %@ %@",arch,imageBase - 0x1000,outFile,outFile] UTF8String];
 		
 		if (verbose)
 			printf("%s\n",command);

@@ -23,9 +23,13 @@
 	NSScanner *scanner = [NSScanner scannerWithString:string];
 	uint64_t scannedOffset = 0;
 	NSString *scannedSymbolName = nil;
+	NSUInteger pointerSize = 0;
 	BOOL symbolNameOK = NO;
 	if ([scanner scanHexLongLong:&scannedOffset])
 	{
+		pointerSize = [scanner scanLocation] > 10 ? 8 : 4;
+		uint64_t imageBase = pointerSize == 8 ? 0x100000000 : 0x1000;
+		scannedOffset -= imageBase;
 		[scanner scanString:@" " intoString:NULL];
 		symbolNameOK = [scanner scanUpToString:@"" intoString:&scannedSymbolName];
 	}
@@ -39,28 +43,19 @@
 	Symbol *new = [[[self alloc] init] autorelease];
 	new.symbolName = scannedSymbolName;
 	new.offset = scannedOffset;
+	new.pointerSize = pointerSize;
 	return new;
 }
 
 - (NSInteger)writeToFile: (FILE*)file fromOffset:(NSInteger)startOffset
 {
-	if (startOffset)
-	{// already started, so just skip the gab between the previous symbol and the current symbol
-		fprintf(file,".space %s,0x90\n",[[[NSNumber numberWithInteger:(self.offset - startOffset)] stringValue] UTF8String]);
-	}
-	else
-	{// we start the file, first create a dummy space.
-	 // the dummy space is required because we start -0x1000 before the desired offset and now need to fill the gap between 0x0000 and the first offset.
-		int initialSpace = self.offset & 0x0fff;
-		if (initialSpace)
-			// only print if the initialSpace is > 0. Otherwise the assembler will fail
-			fprintf(file,".space %s,0x90\n",[[[NSNumber numberWithInteger:initialSpace] stringValue] UTF8String]);
-	}
-	
 	BOOL isMethodSymbol = ([self.symbolName hasPrefix:@"+["] || [self.symbolName hasPrefix:@"-["]);
 	const char *name = [self.symbolName UTF8String];
 	const char *nameWithUnderscore = isMethodSymbol ? name : [[@"_" stringByAppendingString:self.symbolName] UTF8String];
+	
+	fprintf(file,".space %s,0x90\n",[[[NSNumber numberWithInteger:(self.offset - startOffset)] stringValue] UTF8String]);
 	fprintf(file,".globl \"%s\" \n \"%s\": \n .stabs \"%s:F(0,1)\",36,0,0,\"%s\" \n", nameWithUnderscore, nameWithUnderscore, name, nameWithUnderscore);
+	
 	return self.offset;
 }
 

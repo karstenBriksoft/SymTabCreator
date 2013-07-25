@@ -13,6 +13,7 @@
 
 @property (assign) uint64_t offset;
 @property (copy) NSString *symbolName;
+@property (assign) NSUInteger pointerSize; // in bytes
 
 + (id)fromLine:(NSString*) string;
 - (NSInteger)writeToFile: (FILE*)file fromOffset:(NSInteger)startOffset;
