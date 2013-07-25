@@ -9,18 +9,13 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface Symbol : NSObject {
-	NSInteger offset;
-	NSString* symbolName;
-}
+@interface Symbol : NSObject
 
-- (NSInteger) offset;
-- (void) setOffset: (NSInteger) newValue;
-
+@property (assign) uint64_t offset;
+@property (copy) NSString *symbolName;
+@property (assign) NSUInteger pointerSize; // in bytes
 
 + (id)fromLine:(NSString*) string;
 - (NSInteger)writeToFile: (FILE*)file fromOffset:(NSInteger)startOffset;
 
-- (NSString *) symbolName;
-- (void) setSymbolName: (NSString *) newValue;
 @end
