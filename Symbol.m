@@ -59,4 +59,9 @@
 	return self.offset;
 }
 
+- (NSString*) description
+{
+	return [NSString stringWithFormat:@"%0*llx %@", (int)self.pointerSize * 2, self.offset, self.symbolName];
+}
+
 @end
