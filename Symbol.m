@@ -56,8 +56,11 @@
 			// only print if the initialSpace is > 0. Otherwise the assembler will fail
 			fprintf(file,".space %s,0x90\n",[[[NSNumber numberWithInteger:initialSpace] stringValue] UTF8String]);
 	}
-	const char* name = [self.symbolName UTF8String];
-	fprintf(file,".globl _%s \n _%s: \n .stabs \"%s:F(0,1)\",36,0,0,_%s \n",name, name,name,name);
+	
+	BOOL isMethodSymbol = ([self.symbolName hasPrefix:@"+["] || [self.symbolName hasPrefix:@"-["]);
+	const char *name = [self.symbolName UTF8String];
+	const char *nameWithUnderscore = isMethodSymbol ? name : [[@"_" stringByAppendingString:self.symbolName] UTF8String];
+	fprintf(file,".globl \"%s\" \n \"%s\": \n .stabs \"%s:F(0,1)\",36,0,0,\"%s\" \n", nameWithUnderscore, nameWithUnderscore, name, nameWithUnderscore);
 	return self.offset;
 }
 
