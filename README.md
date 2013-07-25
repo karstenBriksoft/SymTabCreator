@@ -2,8 +2,7 @@ SymTabCreator allows you to create Symbol Table for a stripped app
 
 only works for x86_64 and i386 apps (MH_EXECUTE file type)
 
-
-What is it?
+# What is the problem?
 
 if you disassemble a stripped binary you can see the following code:
 
@@ -30,6 +29,9 @@ if you disassemble a stripped binary you can see the following code:
 	...
 
 gdb doesn't even know Anon functions.
+
+# How to solve the problem?
+
 Note down the offsets in a file (example.symbols):
 
 	00001ec0 start
@@ -41,7 +43,7 @@ please note that you currently need a 8 (for i386) or 16 (for x86_64) digit hex 
 
 this file is then processed with SymTabCreator:
 
-SymTabCreator -s example.symbols -o example.stabs
+	SymTabCreator -s example.symbols -o example.stabs
 
 Now you have the symbols in example.stabs and can use them in GDB:
 
@@ -51,3 +53,13 @@ Now you have the symbols in example.stabs and can use them in GDB:
 now you've got symbols loaded and can add a breakpoint to "main" for example:
 	
 	b main
+	
+# Dealing with Objective-C Methods
+
+SymTabCreator also supports Objective-C Methods. 
+
+	00000001000c774c +[Person personWithName:city:]
+	00000001000c8936 -[Person name]
+	00000001000c8886 -[Person say:]
+
+To create the symbols file from the Objective-C Runtime information stored in an application, use [objc-symbols](https://github.com/0xced/class-dump/tree/objc-symbols)
